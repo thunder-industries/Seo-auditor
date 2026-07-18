@@ -8,12 +8,13 @@
     "dev": "tsx watch src/index.ts"
   },
   "dependencies": {
-    "@seo-auditor/plugins": "*",
-    "@seo-auditor/technical": "*",
-    "@seo-auditor/security": "*",
+    "@fastify/cors": "^8.5.0",
     "@seo-auditor/database": "*",
     "@seo-auditor/orchestration": "*",
+    "@seo-auditor/plugins": "*",
     "@seo-auditor/queue": "*",
+    "@seo-auditor/security": "*",
+    "@seo-auditor/technical": "*",
     "bullmq": "^5.80.8",
     "fastify": "^4.28.0",
     "zod": "^3.23.0"

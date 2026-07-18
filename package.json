@@ -2,31 +2,25 @@
   "name": "seoauditor",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
   "workspaces": [
     "apps/*",
     "packages/*",
     "database"
   ],
   "scripts": {
-    "start": "nodemon index.js",
+    "dev": "concurrently -n api,worker,web -c blue,magenta,green \"npm run dev --workspace apps/api\" \"npm run dev --workspace apps/worker\" \"npm run dev --workspace apps/web\"",
     "dev:api": "npm run dev --workspace apps/api",
-    "typecheck": "tsc --noEmit -p tsconfig.json",
+    "dev:worker": "npm run dev --workspace apps/worker",
+    "dev:web": "npm run dev --workspace apps/web",
+    "typecheck": "tsc --noEmit -p tsconfig.json && npm run typecheck --workspace apps/web",
     "test": "vitest run"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "type": "commonjs",
-  "dependencies": {
-    "axios": "^1.18.1",
-    "chalk": "^4.1.2",
-    "cheerio": "^1.2.0",
-    "nodemon": "^3.1.14",
-    "ora": "^5.4.1"
-  },
   "devDependencies": {
     "@types/node": "^20.14.0",
+    "concurrently": "^9.2.4",
     "tsx": "^4.19.0",
     "typescript": "^5.6.0",
     "vitest": "^2.1.0"

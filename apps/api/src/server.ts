@@ -1,5 +1,6 @@
 import { randomUUID } from "node:crypto";
 import Fastify, { type FastifyInstance } from "fastify";
+import cors from "@fastify/cors";
 import { z } from "zod";
 import type { Queue } from "bullmq";
 import { PluginRegistry } from "@seo-auditor/plugins";
@@ -39,6 +40,10 @@ export function buildServer(
   registry.registerAll([...technicalPlugins, ...securityPlugins]);
 
   const app = Fastify({ logger: false });
+
+  app.register(cors, {
+    origin: process.env.CORS_ORIGIN ?? true
+  });
 
   app.post("/audits", async (request, reply) => {
 
