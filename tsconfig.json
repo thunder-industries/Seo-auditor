@@ -1,0 +1,27 @@
+{
+  "extends": "./tsconfig.base.json",
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@seo-auditor/plugins": ["packages/plugins/src/index.ts"],
+      "@seo-auditor/crawler": ["packages/crawler/src/index.ts"],
+      "@seo-auditor/parser": ["packages/parser/src/index.ts"],
+      "@seo-auditor/technical": ["packages/technical/src/index.ts"],
+      "@seo-auditor/security": ["packages/security/src/index.ts"],
+      "@seo-auditor/scoring": ["packages/scoring/src/index.ts"],
+      "@seo-auditor/reports": ["packages/reports/src/index.ts"],
+      "@seo-auditor/database": ["database/src/index.ts"],
+      "@seo-auditor/orchestration": ["packages/orchestration/src/index.ts"],
+      "@seo-auditor/queue": ["packages/queue/src/index.ts"],
+      "@seo-auditor/javascript": ["packages/javascript/src/index.ts"],
+      "@seo-auditor/browser": ["packages/browser/src/index.ts"],
+      "@seo-auditor/performance": ["packages/performance/src/index.ts"],
+      "@seo-auditor/accessibility": ["packages/accessibility/src/index.ts"]
+    }
+  },
+  "include": [
+    "apps/**/src/**/*.ts",
+    "packages/**/src/**/*.ts",
+    "database/src/**/*.ts"
+  ]
+}

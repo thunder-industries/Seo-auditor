@@ -700,11 +700,18 @@ function printReport(report) {
     section("DNS RECORDS");
 
     for (const type of ["A", "AAAA", "MX", "NS", "CNAME", "TXT"]) {
+
         const records = report.dns[type] || [];
+
+        const formatted = type === "MX"
+            ? records.map(r => `${r.exchange} (priority ${r.priority})`)
+            : records;
+
         console.log(
             `${type.padEnd(6)}:`,
-            records.length ? records.join(", ") : "—"
+            formatted.length ? formatted.join(", ") : "—"
         );
+
     }
 
     section("GEO-IP (via ip-api.com)");
@@ -973,8 +980,5 @@ async function main() {
 
 }
 
-//===========================================================
-// START
-//===========================================================
 
 main();

@@ -1,0 +1,21 @@
+{
+  "name": "@seo-auditor/api",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "main": "src/index.ts",
+  "scripts": {
+    "dev": "tsx watch src/index.ts"
+  },
+  "dependencies": {
+    "@seo-auditor/plugins": "*",
+    "@seo-auditor/technical": "*",
+    "@seo-auditor/security": "*",
+    "@seo-auditor/database": "*",
+    "@seo-auditor/orchestration": "*",
+    "@seo-auditor/queue": "*",
+    "bullmq": "^5.80.8",
+    "fastify": "^4.28.0",
+    "zod": "^3.23.0"
+  }
+}
